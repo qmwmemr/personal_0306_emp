@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper
+	namespace="com.example.spring01.emp.repository.IEmpMapper">
+
+	<resultMap id="EmpMap"
+		type="com.example.spring01.emp.model.EmpVO">
+		<id property="emp_pk" column="emp_pk" />
+		<result property="emp_emp" column="emp_emp" />
+		<result property="emp_name" column="emp_name" />
+		<result property="emp_number" column="emp_number" />
+		<result property="emp_email" column="emp_email" />
+		<result property="emp_position" column="emp_position" />
+	</resultMap>
+
+	<!-- 회원가입 -->
+	<insert id="insert">
+		insert into emp
+		values(
+		#{emp_pk},#{emp_no},#{emp_name},#{emp_number},
+		#{emp_email},#{emp_position}
+		)
+	</insert>
+
+	<!-- 직원정보 출력(이름순) -->
+	<select id="selectAll" resultMap="EmpMap">
+		select * from emp order by emp_name
+	</select>
+
+
+</mapper>
+
+
+

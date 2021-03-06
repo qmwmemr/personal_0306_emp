@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper
+	namespace="com.example.spring01.member.repository.IMemMapper">
+
+	<resultMap id="MemMap"
+		type="com.example.spring01.member.model.MemVO">
+		<id property="mem_id" column="mem_id" />
+		<result property="mem_pw" column="mem_pw" />
+		<result property="mem_name" column="mem_name" />
+		<result property="mem_birth" column="mem_birth" />
+		<result property="mem_email" column="mem_email" />
+		<result property="mem_phone" column="mem_phone" />
+		<result property="mem_gender" column="mem_gender" />
+		<result property="mem_hobby" column="mem_hobby" />
+		<result property="mem_oaddress" column="mem_oaddress" />
+		<result property="mem_address" column="mem_address" />
+		<result property="mem_detailaddress" column="mem_detailaddress" />
+		<result property="mem_point" column="mem_point" />
+	</resultMap>
+
+	<!-- 회원가입 -->
+	<insert id="memberJonMethod" > 
+	insert into member 
+	values(
+		#{mem_id}, #{mem_pw}, #{mem_name},
+		 #{mem_birth}, #{mem_email},
+		#{mem_phone}, #{mem_gender}, 
+		null, #{mem_oaddress}, #{mem_address},
+		#{mem_detailaddress}, 0 
+		) 
+		</insert>
+		
+		
+		
+</mapper>
+
+
+
