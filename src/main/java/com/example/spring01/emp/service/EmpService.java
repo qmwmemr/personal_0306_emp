@@ -34,5 +34,10 @@ public class EmpService implements IEmpservice {
 		mapper.delete(emp_no);
 	}
 
+	@Override
+	public int noCheck(String emp_no) {
+		return mapper.noCheck(emp_no);
+	}
+
 	
 }

@@ -21,5 +21,7 @@ public interface IEmpMapper {
 	//직원 정보 삭제
 	void delete(String emp_no);
 	
+	//직원번호 중복체크
+	int noCheck(String emp_no);
 	
 }

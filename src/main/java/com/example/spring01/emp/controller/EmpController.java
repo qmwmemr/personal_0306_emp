@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.spring01.emp.model.EmpVO;
 import com.example.spring01.emp.service.IEmpservice;
@@ -46,7 +48,17 @@ public class EmpController {
 	}
 	
 	
-
+	//직원번호 중복 체크
+	@PostMapping("/noCheck")
+	public Integer noCheck(@RequestBody String emp_no) {
+		System.out.println("/emp/noCheck post");
+		System.out.println("parameter: " + emp_no);
+		
+		Integer cnt = service.noCheck(emp_no);
+		
+		System.out.println(cnt);
+		return cnt;
+	}
 	
 	
 	

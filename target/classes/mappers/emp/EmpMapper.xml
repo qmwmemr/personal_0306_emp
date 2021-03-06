@@ -18,7 +18,8 @@
 
 	<!-- 회원가입 -->
 	<insert id="insert">
-		insert into emp
+		insert 
+		into emp 
 		values(
 		#{emp_pk},#{emp_no},#{emp_name},#{emp_number},
 		#{emp_email},#{emp_position}
@@ -27,7 +28,16 @@
 
 	<!-- 직원정보 출력(이름순) -->
 	<select id="selectAll" resultMap="EmpMap">
-		select * from emp order by emp_name
+		select * 
+		from emp 
+		order by emp_name
+	</select>
+
+	<!-- 아이디 중복확인 -->
+	<select id="noCheck" resultType="int">
+		select count(*) 
+		from emp 
+		where emp_no= #{emp_no}
 	</select>
 
 
